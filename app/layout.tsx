@@ -7,7 +7,7 @@ import Header from "components/header";
 import Footer from "components/footer";
 import RecoilProvider from "config/RecoilProvider";
 import MainLayout from "components/layouts/main-layout";
-import Auth from "components/auth";
+import Auth from "app/auth";
 import { createServerSupabaseClient } from "utils/supabase/server";
 import AuthProvider from "config/auth-provider";
 
