@@ -1,10 +1,9 @@
 "use client";
 
+import { createBrowserSupabaseClient } from "utils/supabase/client";
 import { Button, Input } from "@material-tailwind/react";
-import { createBrowserClient } from "@supabase/ssr";
 import { useMutation } from "@tanstack/react-query";
 import { useState } from "react";
-import { createBrowserSupabaseClient } from "utils/supabase/client";
 
 export default function SignIn({ setView }) {
   const [email, setEmail] = useState("");

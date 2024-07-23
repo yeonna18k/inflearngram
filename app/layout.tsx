@@ -1,15 +1,13 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
 import { ThemeProvider } from "components/material-tailwind-theme-provider";
 import ReactQueryClientProvider from "config/ReactQueryClientProvider";
-import Header from "components/header";
-import Footer from "components/footer";
-import RecoilProvider from "config/RecoilProvider";
-import MainLayout from "components/layouts/main-layout";
-import Auth from "app/auth";
 import { createServerSupabaseClient } from "utils/supabase/server";
+import MainLayout from "components/layouts/main-layout";
+import RecoilProvider from "config/RecoilProvider";
 import AuthProvider from "config/auth-provider";
+import { Inter } from "next/font/google";
+import type { Metadata } from "next";
+import Auth from "components/auth";
+import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -32,26 +30,26 @@ export default async function RootLayout({
 
   return (
     <RecoilProvider>
-      <ReactQueryClientProvider>
-        <ThemeProvider>
-          <html lang="en">
-            <head>
-              <link
-                rel="stylesheet"
-                href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-                integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-                crossOrigin="anonymous"
-                referrerPolicy="no-referrer"
-              />
-            </head>
+      <html lang="en">
+        <head>
+          <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+            integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+            crossOrigin="anonymous"
+            referrerPolicy="no-referrer"
+          />
+        </head>
+        <ReactQueryClientProvider>
+          <ThemeProvider>
             <AuthProvider accessToken={session?.access_token}>
               <body className={inter.className}>
                 {session?.user ? <MainLayout>{children}</MainLayout> : <Auth />}
               </body>
             </AuthProvider>
-          </html>
-        </ThemeProvider>
-      </ReactQueryClientProvider>
+          </ThemeProvider>
+        </ReactQueryClientProvider>
+      </html>
     </RecoilProvider>
   );
 }

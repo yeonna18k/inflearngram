@@ -37,7 +37,7 @@ export default function SignUp({ setView }) {
         token: otp,
       });
       if (data) {
-        console.log(data);
+        // console.log(data);
       }
       if (error) {
         alert(error.message);
