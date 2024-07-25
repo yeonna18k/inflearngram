@@ -1,10 +1,14 @@
 "use client";
 
-import { Spinner } from "@material-tailwind/react";
+import { select, Spinner } from "@material-tailwind/react";
 import Person from "./Person";
 import Message from "./Message";
 import { useRecoilValue } from "recoil";
-import { selectedUserIdState, selectedUserIndexState } from "utils/recoil/atom";
+import {
+  presenceState,
+  selectedUserIdState,
+  selectedUserIndexState,
+} from "utils/recoil/atom";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { getAllMessages, getUserById, sendMessage } from "actions/chatActions";
 import { useEffect, useState } from "react";
@@ -14,6 +18,7 @@ export default function ChatScreen() {
   const selectedUserId = useRecoilValue(selectedUserIdState);
   const selectedUserIndex = useRecoilValue(selectedUserIndexState);
   const [message, setMessage] = useState("");
+  const presence = useRecoilValue(presenceState);
 
   const supabase = createBrowserSupabaseClient();
 
@@ -72,7 +77,7 @@ export default function ChatScreen() {
         isActive={false}
         name={selectedUserQuery.data?.email?.split("@")[0]}
         onChatScreen={true}
-        onlineAt={new Date().toISOString()}
+        onlineAt={presence?.[selectedUserId]?.[0]?.onlineAt}
         userId={selectedUserQuery.data?.id}
       />
       {/* 채팅 영역 */}
