@@ -18,7 +18,11 @@ export default function SignUp({ setView }) {
       const { data, error } = await supabase.auth.signUp({
         email,
         password,
-        options: { emailRedirectTo: "http://localhost:3000/signup/confirm" },
+        options: {
+          emailRedirectTo: process.env.NEXT_PUBLIC_VERCEL_URL
+            ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/signup/confirm`
+            : "http://localhost:3000/signup/confirm",
+        },
       });
       if (data) {
         setConfirmationRequired(true);
