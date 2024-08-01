@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 인플런그램 (Inflearngram) 포트폴리오
 
-## Getting Started
+## 프로젝트 소개
 
-First, run the development server:
+인플런그램은 Next.js와 Supabase를 사용하여 만든 Instagram 클론 프로젝트입니다. 이 프로젝트는 사용자 인증, 실시간 채팅 기능을 포함하고 있으며, 최신 웹 기술을 활용하여 사용자 경험을 극대화하였습니다.
 
-```bash
+
+## 주요 기능
+- **사용자 인증** : Supabase를 활용하여 이메일 및 소셜 로그인(카카오) 기능을 제공합니다.
+- **실시간 채팅** : 실시간으로 메시지를 주고받을 수 있는 채팅 기능을 제공합니다.
+
+## 사용한 기술 스택
+- **Next.js**: React 기반의 프레임워크로, 서버 사이드 렌더링 및 정적 사이트 생성을 지원합니다.
+- **Supabase** : 오픈 소스 Firebase 대안으로, 데이터베이스, 인증, 스토리지 등을 제공합니다.
+- **Tailwind CSS** : 유틸리티-퍼스트 CSS 프레임워크로, 빠르고 쉽게 스타일링할 수 있습니다.
+- **Recoil** : React 상태 관리 라이브러리로, 전역 상태 관리를 쉽게 할 수 있습니다.
+- **React Query** : 서버 상태 관리를 위한 라이브러리로, 데이터 페칭, 캐싱 등을 쉽게 할 수 있습니다.
+
+## 프로젝트 구조
+이 프로젝트는 다음과 같은 주요 디렉토리와 파일로 구성되어 있습니다:
+
+- `components/` : 재사용 가능한 React 컴포넌트들이 위치한 디렉토리입니다.
+- `pages/` : Next.js의 페이지들이 위치한 디렉토리입니다.
+- `utils/` : 유틸리티 함수들이 위치한 디렉토리입니다.
+- `actions/` : 서버와의 상호작용을 처리하는 함수들이 위치한 디렉토리입니다.
+- `config/` : 프로젝트 설정 파일들이 위치한 디렉토리입니다.
+
+## 프로젝트 시작하기
+### 개발 서버 실행
+
+먼저, 개발 서버를 실행하려면 다음 명령어를 사용하세요:
+```
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+http://localhost:3000에서 브라우저를 열어 결과를 확인할 수 있습니다.
